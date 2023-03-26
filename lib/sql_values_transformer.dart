@@ -1,9 +1,9 @@
 import 'dart:async';
 
-class SetSQLValues extends StreamTransformerBase<String, String> {
+class SqlValuesTransformer extends StreamTransformerBase<String, String> {
   Map<String, dynamic> values;
 
-  SetSQLValues(this.values);
+  SqlValuesTransformer(this.values);
 
   @override
   Stream<String> bind(Stream<String> stream) {

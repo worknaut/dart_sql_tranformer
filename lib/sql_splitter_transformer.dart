@@ -1,7 +1,7 @@
 import 'dart:async';
 
-class SQLSplitter extends StreamTransformerBase<String, String> {
-  const SQLSplitter();
+class SqlSplitterTransformer extends StreamTransformerBase<String, String> {
+  const SqlSplitterTransformer();
 
   @override
   Stream<String> bind(Stream<String> stream) {
