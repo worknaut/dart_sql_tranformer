@@ -5,8 +5,6 @@ Useful transformers to be used with [Dart's streams](https://dart.dev/tutorials/
 At the time of this writing, there are only two available SQL transformers
 1. `SqlSplitterTransformer`. Splits a stream of SQL statements into a stream of individual SQL statements.
 2. `SqlValuesTransformer`. Replaces all values in a stream of SQL statements with a question mark.
-3. There is also `SqlCommentTransformer`, which is used to remove all comments from a stream of SQL statements.
-
 
 ## Usage
 
@@ -44,22 +42,6 @@ void main(List<String> args) async {
 
 ```
 
-### Removing comments from SQL file
-
-```dart
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:sql_transformer/sql_transformer.dart';
-
-void main(List<String> args) async {
-  // Remove comments from SQL file
-  final sqlFileWithoutComments = utf8.decoder
-      .bind(file.openRead())
-      .transform(const SqlCommentTransformer());
-}
-```
-
 ### Splitting SQL file into individual SQL statements
 
 ```dart
@@ -69,7 +51,6 @@ import 'dart:io';
 import 'package:sql_transformer/sql_transformer.dart';
 
 void main(List<String> args) async {
-  // Split the SQL statements in the SQL file into individual SQL statements.
   var file = File('get_users_and_purchases.sql');
   var lines = utf8.decoder
       .bind(file.openRead())
@@ -89,7 +70,6 @@ void main(List<String> args) async {
   var file = File('example.sql');
   var lines = utf8.decoder
       .bind(file.openRead())
-      .transform(const SqlCommentTransformer())
       .transform(const SqlSplitterTransformer())
       .transform(const SqlValuesTransformer({'name': 'John', 'last_name': 'Doe'}));
 }
