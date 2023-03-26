@@ -13,7 +13,7 @@ class SqlValuesTransformer extends StreamTransformerBase<String, String> {
   StreamTransformer<String, String> _setSqlValuesTransformer() {
     return StreamTransformer<String, String>.fromHandlers(
       handleData: (data, sink) {
-        values.keys.forEach((key) {
+        for (var key in values.keys) {
           if (data.contains(':$key')) {
             final value = values[key];
             if (value is String) {
@@ -22,7 +22,7 @@ class SqlValuesTransformer extends StreamTransformerBase<String, String> {
               data = data.replaceAll(':$key', '$value');
             }
           }
-        });
+        }
         sink.add(data);
       },
     );
