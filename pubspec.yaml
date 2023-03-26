@@ -1,7 +1,7 @@
-name: sql_builder
+name: sql_transformer
 description: Dart package for parsing and using SQL files.
-version: 1.0.0
-# homepage: https://www.example.com
+version: 0.0.2
+homepage: https://github.com/worknaut/dart_sql_tranformer
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
