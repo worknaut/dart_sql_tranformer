@@ -1,6 +1,6 @@
 name: sql_transformer
-description: Dart package for parsing and using SQL files.
-version: 0.0.2
+description: Dart package with useful transformers for SQL queries. Splitting SQL statements from a single file, and replacing variables in them.
+version: 0.0.3
 homepage: https://github.com/worknaut/dart_sql_tranformer
 documentation: https://pub.dev/documentation/sql_transformer/latest/
 
